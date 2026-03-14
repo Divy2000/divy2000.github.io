@@ -9,4 +9,4 @@ redirect_from:
 
 {% include base_path %}
 
-You can download my resume [here](http://divy2000.github.io/files/Divy_Patel_2025.pdf)
+You can download my resume [here](http://divy2000.github.io/files/Divy_Patel_2026.pdf)
