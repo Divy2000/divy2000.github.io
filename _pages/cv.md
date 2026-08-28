@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-[Download the PDF](https://divy2000.github.io/files/Divy_Patel_2026.pdf)
+<a class="btn-download" href="https://divy2000.github.io/files/Divy_Patel_2026.pdf">Download the PDF</a>
 
 ## Education
 
