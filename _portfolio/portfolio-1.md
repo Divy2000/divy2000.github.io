@@ -1,7 +1,7 @@
 ---
 title: "LLM for Document Based Question Answering"
-excerpt: "Short description of portfolio item number 1<br/>"
+excerpt: "RAG-based LLM that answers questions over PDFs, CSV, and JSON files with 98% accuracy.<br/>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+Developed a Large Language Model application using Retrieval-Augmented Generation (RAG) to interpret PDFs, CSV, and JSON files, reaching 98% answer accuracy. LangChain handles document storage and retrieval, and prompt engineering keeps responses grounded in the source documents. Evaluated the model against diverse and complex queries to harden chat automation.
