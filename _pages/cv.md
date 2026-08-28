@@ -19,7 +19,7 @@ redirect_from:
 
 ## Experience
 
-### Software Engineer — Walmart (Global Logic), Dallas, TX
+### Software Engineer — GlobalLogic (client: Walmart), Dallas, TX
 *Oct 2024 – Present*
 
 - Built Python/Django RESTful APIs for external TV control over mobile, HDMI-CEC, and IoT devices.

@@ -70,7 +70,7 @@ The [GitHub repository](https://github.com/yatri1609/Music-Generation) contains 
 <ul class="skill-chips"><li>Model Optimization</li><li>Azure Custom Vision</li><li>Data Augmentation</li></ul>
 
 - Developed AI model for real-time image classification of 2-D brain MRI scans using TensorFlow Lite and Azure's Custom Vision Service.
-- Preprocessed and augmented Harvard dataset skin disease images with noise addition and model tuning for optimized performance.
+- Preprocessed and augmented the brain MRI dataset with noise addition and model tuning for optimized performance.
 - Developed and exported a TensorFlow Lite model, integrated it into an Android app for mobile healthcare via smartphone camera.
 
 </div>
