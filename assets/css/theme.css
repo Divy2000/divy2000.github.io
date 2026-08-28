@@ -1,99 +1,164 @@
-/* Light/dark theme tokens. Light values mirror the compiled theme so light mode is unchanged. */
+/* Light and dark theme tokens plus the fixed theme switch.
+   Light values mirror the compiled Minimal Mistakes palette so light mode is unchanged. */
 :root {
   --dp-bg: #fff;
+  --dp-bg-elevated: #fff;
   --dp-text: #494e52;
-  --dp-muted: #646769;
+  --dp-heading: #3b4045;
+  --dp-muted: #7a8288;
   --dp-surface: #fafafa;
   --dp-border: #f2f3f3;
   --dp-link: #2f7d93;
-  --dp-nav-bg: #fff;
+  --dp-link-hover: #1f5666;
+  --dp-nav-bg: rgba(255, 255, 255, 0.92);
   --dp-footer-bg: #f2f3f3;
-  --dp-github: #171516;
+  --dp-icon: #494e52;
+  --dp-switch-track: #dfe2e4;
+  --dp-switch-knob: #fff;
+  --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color-scheme: light;
 }
 
 html[data-theme="dark"] {
-  --dp-bg: #16181a;
-  --dp-text: #d6d8da;
-  --dp-muted: #a0a4a8;
-  --dp-surface: #202325;
-  --dp-border: #33373a;
-  --dp-link: #7cc0dc;
-  --dp-nav-bg: #16181a;
-  --dp-footer-bg: #1b1e20;
-  --dp-github: #d6d8da;
+  --dp-bg: #0f1216;
+  --dp-bg-elevated: #151a20;
+  --dp-text: #dbe0e6;
+  --dp-heading: #f2f5f8;
+  --dp-muted: #99a2ad;
+  --dp-surface: #1a2028;
+  --dp-border: #262e38;
+  --dp-link: #7db6f0;
+  --dp-link-hover: #a8cdf7;
+  --dp-nav-bg: rgba(15, 18, 22, 0.88);
+  --dp-footer-bg: #0c0f12;
+  --dp-icon: #dbe0e6;
+  --dp-switch-track: #2a323c;
+  --dp-switch-knob: #f2f5f8;
+  --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) {
-    --dp-bg: #16181a;
-    --dp-text: #d6d8da;
-    --dp-muted: #a0a4a8;
-    --dp-surface: #202325;
-    --dp-border: #33373a;
-    --dp-link: #7cc0dc;
-    --dp-nav-bg: #16181a;
-    --dp-footer-bg: #1b1e20;
-    --dp-github: #d6d8da;
+    --dp-bg: #0f1216;
+    --dp-bg-elevated: #151a20;
+    --dp-text: #dbe0e6;
+    --dp-heading: #f2f5f8;
+    --dp-muted: #99a2ad;
+    --dp-surface: #1a2028;
+    --dp-border: #262e38;
+    --dp-link: #7db6f0;
+    --dp-link-hover: #a8cdf7;
+    --dp-nav-bg: rgba(15, 18, 22, 0.88);
+    --dp-footer-bg: #0c0f12;
+    --dp-icon: #dbe0e6;
+    --dp-switch-track: #2a323c;
+    --dp-switch-knob: #f2f5f8;
+    --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
 }
 
+/* html carries the background so short pages do not leave a light band below body. */
+html,
 body {
   background-color: var(--dp-bg);
-  color: var(--dp-text);
 }
 
-h1, h2, h3, h4, h5, h6 {
+body {
   color: var(--dp-text);
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#main,
+.initial-content,
+.page,
+.page__inner-wrap,
+.page__content,
+.archive,
+.sidebar {
+  background-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6,
+.page__title,
+.archive__item-title,
+.page__content h1,
+.page__content h2,
+.page__content h3 {
+  color: var(--dp-heading);
 }
 
 a {
   color: var(--dp-link);
 }
 
+a:hover,
+a:focus {
+  color: var(--dp-link-hover);
+}
+
 .masthead {
   background-color: var(--dp-nav-bg);
-  border-bottom-color: var(--dp-border);
+  border-bottom: 1px solid var(--dp-border);
+  backdrop-filter: saturate(150%) blur(8px);
 }
 
 .greedy-nav {
-  background: var(--dp-nav-bg);
+  background: transparent;
 }
 
-.greedy-nav a {
+.greedy-nav a,
+.greedy-nav .site-title {
+  color: var(--dp-text);
+}
+
+.greedy-nav a:hover {
+  color: var(--dp-link);
+}
+
+.greedy-nav .visible-links a:before {
+  background: var(--dp-link);
+}
+
+.greedy-nav button {
+  background-color: transparent;
   color: var(--dp-text);
 }
 
 .greedy-nav .hidden-links {
-  background: var(--dp-surface);
+  background: var(--dp-bg-elevated);
   border-color: var(--dp-border);
+  box-shadow: var(--dp-shadow);
+}
+
+.greedy-nav .hidden-links a {
+  color: var(--dp-text);
 }
 
 .greedy-nav .hidden-links::before {
-  border-color: transparent transparent var(--dp-surface) transparent;
+  border-color: transparent transparent var(--dp-bg-elevated) transparent;
 }
 
-.author__name {
+.author__name,
+.author__urls a {
   color: var(--dp-text);
 }
 
 .author__bio,
 .author__location,
+.author__pronouns,
 .page__meta,
-.archive__item-excerpt {
+.archive__item-excerpt,
+.page__date {
   color: var(--dp-muted);
 }
 
 .author__urls {
-  background-color: var(--dp-bg);
+  background-color: var(--dp-bg-elevated);
   border-color: var(--dp-border);
-  color: var(--dp-text);
-}
-
-.author__urls a {
-  color: var(--dp-text);
+  box-shadow: var(--dp-shadow);
 }
 
 .author__urls:before {
@@ -101,25 +166,62 @@ a {
 }
 
 .author__urls:after {
-  border-color: var(--dp-bg) transparent;
+  border-color: var(--dp-bg-elevated) transparent;
+}
+
+/* Brand icons in the sidebar and footer inherit hard-coded brand colors that
+   disappear on a dark background; force them onto the theme's icon color. */
+.author__urls i,
+.author__urls .fab,
+.author__urls .fas,
+.author__urls .ai,
+.page__footer .fa-github,
+.page__footer-follow .fa-github {
+  color: var(--dp-icon);
+}
+
+.author__urls .fa-linkedin,
+.author__urls .fa-linkedin-in {
+  color: #0077b5;
 }
 
 .page__footer {
   background-color: var(--dp-footer-bg);
   color: var(--dp-muted);
+  border-top: 1px solid var(--dp-border);
 }
 
-.page__footer a {
+.page__footer a,
+.page__footer-follow a {
   color: var(--dp-link);
 }
 
-code {
-  background-color: var(--dp-surface);
+.page__footer-follow .social-icons .fa-rss-square,
+.page__footer-follow .social-icons .fa-rss {
+  color: #fa9b39;
 }
 
+.archive__item-teaser,
+.archive__item {
+  background-color: transparent;
+}
+
+.archive__item:hover .archive__item-title {
+  color: var(--dp-link);
+}
+
+code,
 pre,
-pre code {
+pre code,
+.highlight,
+.highlighter-rouge .highlight {
   background-color: var(--dp-surface);
+  color: var(--dp-text);
+}
+
+blockquote {
+  border-left-color: var(--dp-border);
+  color: var(--dp-muted);
 }
 
 hr {
@@ -129,6 +231,11 @@ hr {
 table th,
 table td {
   border-color: var(--dp-border);
+}
+
+table th {
+  background-color: var(--dp-surface);
+  color: var(--dp-heading);
 }
 
 table tr:nth-child(even) {
@@ -143,24 +250,98 @@ select {
   border-color: var(--dp-border);
 }
 
-.author__urls .fa-github,
-.author__urls .svg-inline--fa.fa-github,
-.page__footer .fa-github {
-  color: var(--dp-github);
-}
-
-.author__urls .fa-building-columns {
+.notice,
+.notice--info,
+.notice--warning,
+.notice--danger,
+.notice--success,
+.notice--primary {
+  background-color: var(--dp-surface);
   color: var(--dp-text);
 }
 
-#theme-toggle {
-  display: inline-block;
-  visibility: visible !important;
-  background: none;
+/* Theme switch: a fixed pill slider in the top-right corner. */
+#theme-switch {
+  position: fixed;
+  top: 0.85em;
+  right: 1.1em;
+  z-index: 1000;
+  padding: 0;
   border: 0;
+  background: none;
   cursor: pointer;
-  font-size: 1.1em;
+  line-height: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#theme-switch:focus-visible .theme-switch__track {
+  outline: 2px solid var(--dp-link);
+  outline-offset: 2px;
+}
+
+.theme-switch__track {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background-color: var(--dp-switch-track);
+  border: 1px solid var(--dp-border);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-switch__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
   line-height: 1;
-  padding: 0.6em 0.8em;
-  color: var(--dp-text);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.theme-switch__icon--sun {
+  left: 7px;
+  color: #f0a92e;
+  opacity: 1;
+}
+
+.theme-switch__icon--moon {
+  right: 7px;
+  color: #c8d2de;
+  opacity: 0.45;
+}
+
+.theme-switch__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--dp-switch-knob);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
+}
+
+#theme-switch[aria-checked="true"] .theme-switch__knob {
+  transform: translateX(24px);
+}
+
+#theme-switch[aria-checked="true"] .theme-switch__icon--sun {
+  opacity: 0.35;
+}
+
+#theme-switch[aria-checked="true"] .theme-switch__icon--moon {
+  opacity: 1;
+}
+
+/* Keep the switch clear of the mobile nav button. */
+@media (max-width: 47.9375em) {
+  #theme-switch {
+    top: 0.7em;
+    right: 3.6em;
+  }
 }

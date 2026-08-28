@@ -15,26 +15,44 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li class="masthead__menu-item"><a href="javascript:void(0)" id="theme-toggle" role="button" aria-label="Toggle dark mode" title="Toggle dark mode">&#127769;</a></li>
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
     </div>
   </div>
 </div>
+<button id="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode" title="Toggle dark mode">
+  <span class="theme-switch__track">
+    <span class="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">&#9728;</span>
+    <span class="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">&#9789;</span>
+    <span class="theme-switch__knob"></span>
+  </span>
+</button>
 <script>
-  (function(){
-    var btn=document.getElementById('theme-toggle');
-    if(!btn)return;
-    function current(){
-      var a=document.documentElement.getAttribute('data-theme');
-      if(a)return a;
-      return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+  (function () {
+    var sw = document.getElementById('theme-switch');
+    if (!sw) return;
+    function current() {
+      var attr = document.documentElement.getAttribute('data-theme');
+      if (attr) return attr;
+      return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     }
-    btn.addEventListener('click',function(){
-      var next=current()==='dark'?'light':'dark';
-      document.documentElement.setAttribute('data-theme',next);
-      try{localStorage.setItem('theme',next);}catch(e){}
+    function apply(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      sw.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+    }
+    apply(current());
+    sw.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
     });
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        var stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (err) {}
+        if (!stored) apply(e.matches ? 'dark' : 'light');
+      });
+    }
   })();
 </script>
