@@ -21,11 +21,11 @@
     </div>
   </div>
 </div>
-<button id="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode" title="Toggle dark mode">
+<button id="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode" title="Switch to dark mode">
   <span class="theme-switch__track">
-    <span class="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">&#9728;</span>
-    <span class="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">&#9789;</span>
-    <span class="theme-switch__knob"></span>
+    <span class="theme-switch__knob">
+      <span class="theme-switch__icon" aria-hidden="true"></span>
+    </span>
   </span>
 </button>
 <script>
@@ -38,14 +38,17 @@
       return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     }
     function apply(theme) {
+      var dark = theme === 'dark';
       document.documentElement.setAttribute('data-theme', theme);
-      sw.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+      sw.setAttribute('aria-checked', dark ? 'true' : 'false');
+      sw.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.setAttribute('content', dark ? '#0f1216' : '#ffffff');
     }
     apply(current());
     sw.addEventListener('click', function () {
-      var next = current() === 'dark' ? 'light' : 'dark';
-      apply(next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+      apply(current() === 'dark' ? 'light' : 'dark');
+      try { localStorage.setItem('theme', document.documentElement.getAttribute('data-theme')); } catch (e) {}
     });
     if (window.matchMedia) {
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {

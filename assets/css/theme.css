@@ -13,8 +13,12 @@
   --dp-nav-bg: rgba(255, 255, 255, 0.92);
   --dp-footer-bg: #f2f3f3;
   --dp-icon: #494e52;
-  --dp-switch-track: #dfe2e4;
+  --dp-switch-track: #c9ced3;
   --dp-switch-knob: #fff;
+  --dp-switch-border: #a8b0b8;
+  --dp-switch-icon: #d98324;
+  --dp-icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cg stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='12' y1='1' x2='12' y2='3'/%3E%3Cline x1='12' y1='21' x2='12' y2='23'/%3E%3Cline x1='4.2' y1='4.2' x2='5.6' y2='5.6'/%3E%3Cline x1='18.4' y1='18.4' x2='19.8' y2='19.8'/%3E%3Cline x1='1' y1='12' x2='3' y2='12'/%3E%3Cline x1='21' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.2' y1='19.8' x2='5.6' y2='18.4'/%3E%3Cline x1='18.4' y1='5.6' x2='19.8' y2='4.2'/%3E%3C/g%3E%3C/svg%3E");
+  --dp-icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z'/%3E%3C/svg%3E");
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color-scheme: light;
 }
@@ -34,6 +38,8 @@ html[data-theme="dark"] {
   --dp-icon: #dbe0e6;
   --dp-switch-track: #2a323c;
   --dp-switch-knob: #f2f5f8;
+  --dp-switch-border: #454f5b;
+  --dp-switch-icon: #3b4652;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -54,6 +60,8 @@ html[data-theme="dark"] {
     --dp-icon: #dbe0e6;
     --dp-switch-track: #2a323c;
     --dp-switch-knob: #f2f5f8;
+    --dp-switch-border: #454f5b;
+    --dp-switch-icon: #3b4652;
     --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -260,10 +268,124 @@ select {
   color: var(--dp-text);
 }
 
-/* Theme switch: a fixed pill slider in the top-right corner. */
+/* Typography: one variable-weight UI face, a real spacing scale, a readable measure. */
+:root {
+  --dp-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --dp-measure: 70ch;
+  --dp-space-1: 0.25rem;
+  --dp-space-2: 0.5rem;
+  --dp-space-3: 1rem;
+  --dp-space-4: 1.5rem;
+  --dp-space-5: 2.5rem;
+  --dp-radius: 12px;
+}
+
+body,
+.greedy-nav,
+.author__name,
+.author__bio,
+.page__title,
+.page__content,
+.page__footer {
+  font-family: var(--dp-font);
+}
+
+body {
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.page__title,
+.page__content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.page__content h2 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  margin-top: var(--dp-space-5);
+  margin-bottom: var(--dp-space-2);
+}
+
+.page__content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: var(--dp-space-4);
+}
+
+.page__content p,
+.page__content li {
+  max-width: var(--dp-measure);
+  font-size: 1rem;
+}
+
+.page__content > ul,
+.page__content > ol {
+  max-width: var(--dp-measure);
+}
+
+/* Inline links stay text-sized even inside a heading-led project entry. */
+.page__content a {
+  font-weight: 500;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.page__content h2 a,
+.page__content h3 a {
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* Sidebar: circular avatar, themed ring, contact list always reachable. */
+.sidebar .author__avatar img,
+.author__avatar img {
+  width: 180px;
+  height: 180px;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--dp-border);
+  box-shadow: var(--dp-shadow);
+}
+
+.author__name {
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.author__urls li {
+  padding: 0.28em 0;
+}
+
+.author__urls a:hover {
+  color: var(--dp-link);
+  text-decoration: none;
+}
+
+/* Publication and project entries read as cards rather than a flat markdown dump. */
+.page__content h2:not(:first-child) {
+  padding-top: var(--dp-space-4);
+  border-top: 1px solid var(--dp-border);
+}
+
+/* Nav keeps clear of the fixed switch so links are never covered. */
+.greedy-nav .visible-links {
+  padding-right: 74px;
+}
+
+/* Theme switch: fixed pill, icon rides inside the knob so it always shows the active mode. */
 #theme-switch {
   position: fixed;
-  top: 0.85em;
+  top: 0.8em;
   right: 1.1em;
   z-index: 1000;
   padding: 0;
@@ -283,65 +405,77 @@ select {
 .theme-switch__track {
   position: relative;
   display: block;
-  width: 52px;
-  height: 28px;
+  width: 54px;
+  height: 30px;
   border-radius: 999px;
   background-color: var(--dp-switch-track);
-  border: 1px solid var(--dp-border);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--dp-switch-border);
   transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.theme-switch__icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 12px;
-  line-height: 1;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.theme-switch__icon--sun {
-  left: 7px;
-  color: #f0a92e;
-  opacity: 1;
-}
-
-.theme-switch__icon--moon {
-  right: 7px;
-  color: #c8d2de;
-  opacity: 0.45;
 }
 
 .theme-switch__knob {
   position: absolute;
   top: 3px;
   left: 3px;
-  width: 20px;
-  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: var(--dp-switch-knob);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease;
 }
 
+.theme-switch__icon {
+  width: 13px;
+  height: 13px;
+  background-color: var(--dp-switch-icon);
+  /* sun */
+  -webkit-mask: var(--dp-icon-sun) center / contain no-repeat;
+  mask: var(--dp-icon-sun) center / contain no-repeat;
+}
+
 #theme-switch[aria-checked="true"] .theme-switch__knob {
   transform: translateX(24px);
 }
 
-#theme-switch[aria-checked="true"] .theme-switch__icon--sun {
-  opacity: 0.35;
+#theme-switch[aria-checked="true"] .theme-switch__icon {
+  -webkit-mask-image: var(--dp-icon-moon);
+  mask-image: var(--dp-icon-moon);
 }
 
-#theme-switch[aria-checked="true"] .theme-switch__icon--moon {
-  opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+  .theme-switch__knob,
+  body,
+  .page__content a {
+    transition: none;
+  }
 }
 
-/* Keep the switch clear of the mobile nav button. */
 @media (max-width: 47.9375em) {
   #theme-switch {
-    top: 0.7em;
-    right: 3.6em;
+    top: 0.65em;
+    right: 3.9em;
+  }
+
+  .greedy-nav .visible-links {
+    padding-right: 0;
+  }
+
+  /* Contact links matter more on a phone than the "Follow" affordance. */
+  .author__urls.social-icons {
+    display: block !important;
+  }
+
+  .author__urls-wrapper button {
+    display: none;
+  }
+
+  .author__avatar img {
+    width: 96px;
+    height: 96px;
+    max-width: 96px;
   }
 }

@@ -16,7 +16,17 @@
 </script>
 
 <script>
-  (function(){try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    if (stored) document.documentElement.setAttribute('data-theme', stored);
+    var dark = stored ? stored === 'dark'
+      : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.addEventListener('DOMContentLoaded', function () {
+      var meta = document.getElementById('meta-theme-color');
+      if (meta) meta.setAttribute('content', dark ? '#0f1216' : '#ffffff');
+    });
+  })();
 </script>
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
