@@ -149,8 +149,13 @@ select {
   color: var(--dp-github);
 }
 
+.author__urls .fa-building-columns {
+  color: var(--dp-text);
+}
+
 #theme-toggle {
   display: inline-block;
+  visibility: visible !important;
   background: none;
   border: 0;
   cursor: pointer;
