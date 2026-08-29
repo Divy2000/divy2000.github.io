@@ -12,8 +12,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 
 <div class="entry-card" markdown="1">
 
-## LLM for Document Based Question Answering - [GitHub Repository](https://github.com/Divy2000/Document-Based-QnA-LLM)
+## LLM for Document Based Question Answering
 
+[GitHub Repository](https://github.com/Divy2000/Document-Based-QnA-LLM)
 <ul class="skill-chips"><li>Large Language Models</li><li>RAG Implementation</li><li>Prompt Engineering</li><li>Chat Automation</li></ul>
 
 - Developed Large Language Model (LLM) using RAG implementation to interpret PDFs, CSV, and JSON files, with **98%** accuracy.
@@ -34,8 +35,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Skin Disease Detector App - [GitHub Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)
+## Skin Disease Detector App
 
+[GitHub Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)
 <ul class="skill-chips"><li>Deep Learning</li><li>Computer Vision</li><li>Real-Time Classification</li><li>Model Optimization</li><li>Data Augmentation</li></ul>
 
 - Led the development of skin disease detector app during a 24-hour hackathon, using TensorFlow Lite for real-time classification.
@@ -45,8 +47,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Brain Tumor Recognizer App - [GitHub Repository](https://github.com/Divy2000/Brain-Tumor-Recognizer-App)
+## Brain Tumor Recognizer App
 
+[GitHub Repository](https://github.com/Divy2000/Brain-Tumor-Recognizer-App)
 <ul class="skill-chips"><li>Model Optimization</li><li>Azure Custom Vision</li><li>Data Augmentation</li></ul>
 
 - Developed AI model for real-time image classification of 2-D brain MRI scans using TensorFlow Lite and Azure's Custom Vision Service.
@@ -67,7 +70,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Gesture-Based Media Control System - [GitHub Repository](https://github.com/Divy2000/Gesture-Based-Media-Control-System)
+## Gesture-Based Media Control System
+
+[GitHub Repository](https://github.com/Divy2000/Gesture-Based-Media-Control-System)
 <ul class="skill-chips"><li>Deep Learning</li><li>Data Augmentation</li></ul>
 
 - Curated a dataset of hand gestures for play/pause, volume up, and volume down functions.
@@ -87,8 +92,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## EV Battery RUL Predictor - [GitHub Repository](https://github.com/Divy2000/BatteryRULpredictor)
+## EV Battery RUL Predictor
 
+[GitHub Repository](https://github.com/Divy2000/BatteryRULpredictor)
 <ul class="skill-chips"><li>Machine Learning</li><li>Django</li><li>NASA Prognostic Dataset</li><li>Data Visualization</li><li>Predictive Analytics</li></ul>
 
 - Developed a machine learning solution to predict the **Remaining Useful Life (RUL)** of EV batteries.
@@ -99,8 +105,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Bus Number Recognition System - [GitHub Repository](https://github.com/Divy2000/Bus-Number-Recognition-System)
+## Bus Number Recognition System
 
+[GitHub Repository](https://github.com/Divy2000/Bus-Number-Recognition-System)
 <ul class="skill-chips"><li>Computer Vision</li><li>OCR</li><li>Google Cloud Compute</li><li>Arduino Integration</li><li>Real-Time Data</li></ul>
 
 - Developed a bus number detection app using OpenCV and EasyOCR to identify and announce bus numbers for visually impaired users.
@@ -121,8 +128,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Process Scheduling Visualization Application - [GitHub Repository](https://github.com/Divy2000/Scheduling-Algorithms-GUI)
+## Process Scheduling Visualization Application
 
+[GitHub Repository](https://github.com/Divy2000/Scheduling-Algorithms-GUI)
 <ul class="skill-chips"><li>Java</li><li>Data Visualization</li><li>Process Scheduling</li><li>GUI Development</li></ul>
 
 - Developed a Java app to compute important metrics for process scheduling algorithms.
@@ -132,8 +140,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Student Drowsiness Detection System  - [GitHub Repository](https://github.com/Divy2000/Drowsiness-Detection/tree/main)
+## Student Drowsiness Detection System 
 
+[GitHub Repository](https://github.com/Divy2000/Drowsiness-Detection/tree/main)
 <ul class="skill-chips"><li>Deep Learning</li><li>Computer Vision</li><li>Data Extraction</li><li>Real-Time Prediction</li></ul>
 
 - Extracted 57,488 images from ultraLDD dataset, applied masking using dlib, faceutils along-with OpenCV to focus on eyes and mouth.
@@ -165,8 +174,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Smart Parking Database Management System - [GitHub Repository](https://github.com/Divy2000/Smart-Parking-Database-Managment-System)
+## Smart Parking Database Management System
 
+[GitHub Repository](https://github.com/Divy2000/Smart-Parking-Database-Managment-System)
 <ul class="skill-chips"><li>Database Design</li><li>Data Testing</li><li>SQL</li><li>Data Validation</li></ul>
 
 - Led development of comprehensive database management system for smart parking lot application.
@@ -176,8 +186,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Twitter Sentiment Analysis - [GitHub Repository](https://github.com/Divy2000/Twitter-Sentiment-Analysis)
+## Twitter Sentiment Analysis
 
+[GitHub Repository](https://github.com/Divy2000/Twitter-Sentiment-Analysis)
 <ul class="skill-chips"><li>Natural Language Processing (NLP)</li><li>Machine Learning</li><li>Data Visualization</li><li>Data Pipelines</li></ul>
 
 - Developed Twitter Sentiment Analysis framework, utilizing TweePy and incorporating Natural Language Processing (NLP) techniques.
@@ -187,8 +198,9 @@ description: "Projects by Divy Patel across LLMs, computer vision, data pipeline
 </div>
 <div class="entry-card" markdown="1">
 
-## Graph Operations and Search  - [GitHub Repository](https://github.com/Divy2000/Graph-Operations-and-Search)
+## Graph Operations and Search 
 
+[GitHub Repository](https://github.com/Divy2000/Graph-Operations-and-Search)
 <ul class="skill-chips"><li>Java</li><li>Graph Operations</li><li>CLI Development</li></ul>
 
 - Developed Java application for graph operations, with features like parsing DOT files, node and edge management, and visualization.

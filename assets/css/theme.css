@@ -1015,13 +1015,7 @@ body {
 }
 
 /* A fixed sidebar must scroll rather than hide its last rows on short screens. */
-@media (min-width: 80em) {
-  .sidebar {
-    max-height: 100vh;
-    overflow-y: auto;
-    padding-bottom: var(--dp-space-4);
-  }
-}
+
 
 /* Between 600 and 1279 the stacked card lays its rows out in columns. */
 @media (min-width: 37.5em) and (max-width: 79.9375em) {
@@ -1094,10 +1088,58 @@ body {
 
 /* Sticky beats fixed: short viewports fall back to normal page scroll. */
 @media (min-width: 80em) {
+  /* Never clip the sidebar: a shorter viewport must still reach every contact row. */
   .sidebar {
     position: sticky;
     top: 86px;
-    max-height: calc(100vh - 96px);
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
   }
+}
+
+/* Contact card as a two-track grid: icons, baselines, row heights and hang
+   indent all come from one rule. */
+.author__urls li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  column-gap: 10px;
+  min-height: 0;
+  padding: 0.3em 0;
+  line-height: 1.45;
+}
+
+.author__urls li a {
+  display: contents;
+}
+
+.author__urls .dp-icon {
+  margin-right: 0;
+  margin-top: 0.18em;
+  width: 18px;
+  height: 18px;
+}
+
+/* Focus ring uses the site palette and clears 3:1 in light mode. */
+a:focus-visible,
+button:focus-visible,
+.greedy-nav a:focus-visible {
+  outline: 2px solid var(--dp-link);
+  outline-offset: 2px;
+}
+
+/* One prose measure for every page. */
+.page__content,
+.archive {
+  max-width: 68rem;
+}
+
+.page__content p,
+.page__content li,
+.archive p,
+.archive li,
+.entry-card p,
+.entry-card li,
+.pub-list li {
+  max-width: 65ch;
 }

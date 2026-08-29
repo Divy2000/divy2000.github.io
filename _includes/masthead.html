@@ -72,5 +72,11 @@
     };
     new MutationObserver(sync).observe(panel, { attributes: true, attributeFilter: ['class'] });
     sync();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.classList.contains('hidden')) {
+        panel.classList.add('hidden');
+        btn.focus();
+      }
+    });
   })();
 </script>
