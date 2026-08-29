@@ -1006,3 +1006,17 @@ body {
     right: 14px;
   }
 }
+
+/* A display:table row ignores the width clamp; make it a flex row so links stop
+   at the hamburger instead of sliding underneath it. */
+.greedy-nav .visible-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.greedy-nav .visible-links .masthead__menu-item {
+  flex: 0 0 auto;
+}
