@@ -860,7 +860,10 @@ body {
 
   .sidebar .author__urls.social-icons,
   .author__urls.social-icons {
-    display: block !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    column-gap: var(--dp-space-4);
+    align-items: start;
     position: static;
     width: 100%;
     margin: var(--dp-space-3) 0 0;
@@ -1209,4 +1212,42 @@ button:focus-visible,
     padding-right: 0;
     width: auto;
   }
+}
+
+/* Below the real 3-column breakpoint the article must not stay indented for a
+   sidebar that is already stacked above it. */
+@media (max-width: 79.9375em) {
+  .page,
+  .page__inner-wrap,
+  .archive {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    float: none;
+  }
+}
+
+/* Contact rows: one row height, one icon offset. */
+.author__urls li,
+.sidebar .author__urls li.author__desktop,
+.author__urls li.author__desktop {
+  align-items: center;
+  align-content: center;
+  min-height: 44px;
+  padding: 0.25em 0;
+}
+
+.author__urls li > a {
+  align-items: center;
+  padding: 0;
+}
+
+.author__urls .dp-icon {
+  margin-top: 0;
+}
+
+.page__footer-follow a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
