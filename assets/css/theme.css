@@ -1390,3 +1390,9 @@ button:focus-visible,
 .author__urls li:last-child {
   min-height: 53px;
 }
+
+/* The .author__desktop rows outranked the uniform row height. */
+.sidebar .author__urls li.author__desktop,
+.author__urls li.author__desktop {
+  min-height: 53px;
+}
