@@ -1099,18 +1099,34 @@ body {
 
 /* Contact card as a two-track grid: icons, baselines, row heights and hang
    indent all come from one rule. */
-.author__urls li {
+/* Every row - link or not - is the same two-track grid, and the anchor itself is
+   the grid so it keeps a real box, a tab stop, and a focus ring. */
+.author__urls li,
+.author__urls li > a {
   display: grid;
   grid-template-columns: 20px 1fr;
   align-items: start;
-  column-gap: 10px;
-  min-height: 0;
-  padding: 0.3em 0;
+  column-gap: 12px;
   line-height: 1.45;
 }
 
-.author__urls li a {
-  display: contents;
+.author__urls li {
+  padding: 0.3em 0;
+  min-height: 0;
+}
+
+.author__urls li > a {
+  grid-column: 1 / -1;
+  min-height: 32px;
+  align-content: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  color: var(--dp-link);
+}
+
+.author__urls li > a:hover {
+  color: var(--dp-link-hover);
 }
 
 .author__urls .dp-icon {
@@ -1142,4 +1158,18 @@ button:focus-visible,
 .entry-card li,
 .pub-list li {
   max-width: 65ch;
+}
+
+/* main.css pins the sidebar to the viewport height, which defeats sticky and
+   slides the avatar under the masthead. */
+@media (min-width: 80em) {
+  .sidebar {
+    height: auto;
+    align-self: start;
+  }
+}
+
+/* The nav toggle should meet the 44px touch guideline. */
+.greedy-nav > button {
+  min-height: 44px;
 }
