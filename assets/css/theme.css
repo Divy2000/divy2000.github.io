@@ -939,7 +939,7 @@ body {
 }
 
 /* Publications entries reuse the card shell. */
-.archive > ul > li {
+.pub-list > ul > li {
   background-color: var(--dp-surface);
   border: 1px solid var(--dp-card-border);
   border-radius: var(--dp-radius);
@@ -948,8 +948,15 @@ body {
   list-style: none;
 }
 
-.archive > ul {
+.pub-list > ul {
   padding-left: 0;
+}
+
+.pub-list ul ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: var(--dp-space-2);
+  color: var(--dp-muted);
 }
 
 /* One monochrome icon vocabulary. */
@@ -995,4 +1002,54 @@ body {
   #theme-switch {
     right: 14px;
   }
+}
+
+/* Contact card needs its padding at every width, not only when stacked. */
+.author__urls,
+.sidebar .author__urls {
+  padding: var(--dp-space-3);
+}
+
+.author__urls li {
+  padding: 0.3em 0;
+}
+
+/* A fixed sidebar must scroll rather than hide its last rows on short screens. */
+@media (min-width: 80em) {
+  .sidebar {
+    max-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: var(--dp-space-4);
+  }
+}
+
+/* Between 600 and 1279 the stacked card lays its rows out in columns. */
+@media (min-width: 37.5em) and (max-width: 79.9375em) {
+  .author__urls.social-icons {
+    column-count: 2;
+    column-gap: var(--dp-space-4);
+  }
+
+  .author__urls li {
+    break-inside: avoid;
+  }
+}
+
+/* One measure for prose across every page. */
+.page__content p,
+.page__content li,
+.archive p,
+.archive li,
+.entry-card p,
+.entry-card li {
+  max-width: 68ch;
+}
+
+/* Separator lines should be visible without shouting. */
+.masthead {
+  border-bottom-color: var(--dp-card-border);
+}
+
+.page__footer {
+  border-top-color: var(--dp-card-border);
 }

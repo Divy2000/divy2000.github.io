@@ -58,4 +58,19 @@
       });
     }
   })();
+
+  (function () {
+    var nav = document.getElementById('site-nav');
+    if (!nav) return;
+    var btn = nav.querySelector('button');
+    var panel = nav.querySelector('.hidden-links');
+    if (!btn || !panel) return;
+    btn.setAttribute('aria-controls', 'site-nav-menu');
+    panel.id = 'site-nav-menu';
+    var sync = function () {
+      btn.setAttribute('aria-expanded', panel.classList.contains('hidden') ? 'false' : 'true');
+    };
+    new MutationObserver(sync).observe(panel, { attributes: true, attributeFilter: ['class'] });
+    sync();
+  })();
 </script>
