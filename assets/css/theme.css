@@ -834,11 +834,11 @@ body {
 @media (max-width: 63.9375em) {
   #theme-switch {
     top: 20px;
-    right: 60px;
+    right: 72px;
   }
 
   .greedy-nav .visible-links {
-    padding-right: 120px;
+    padding-right: 134px;
   }
 }
 
