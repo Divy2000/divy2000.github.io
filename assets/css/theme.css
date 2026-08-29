@@ -1345,3 +1345,25 @@ button:focus-visible,
 .author__profile .author__bio {
   max-width: 60ch;
 }
+
+/* main.css has `.page .page__inner-wrap { clear: both; float: left }`, which
+   outranked the earlier rule and kept the home page below the rail. */
+@media (min-width: 80em) {
+  #main .page .page__inner-wrap,
+  .page .page__inner-wrap {
+    clear: none;
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Row heights in the desktop rail, where the card is a block list. */
+.sidebar .author__urls li,
+.author__urls li {
+  min-height: 48px;
+}
+
+.sidebar .author__urls li:last-child,
+.author__urls li:last-child {
+  min-height: 53px;
+}
