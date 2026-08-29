@@ -6,8 +6,8 @@
   --dp-text: #494e52;
   --dp-heading: #3b4045;
   --dp-muted: #5f676d;
-  --dp-surface: #fafafa;
-  --dp-border: #f2f3f3;
+  --dp-surface: #f6f7f9;
+  --dp-border: #e2e5e8;
   --dp-link: #216374;
   --dp-link-hover: #1f5666;
   --dp-nav-bg: rgba(255, 255, 255, 0.92);
@@ -19,7 +19,7 @@
   --dp-switch-icon: #b35c00;
   --dp-icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cg stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='12' y1='1' x2='12' y2='3'/%3E%3Cline x1='12' y1='21' x2='12' y2='23'/%3E%3Cline x1='4.2' y1='4.2' x2='5.6' y2='5.6'/%3E%3Cline x1='18.4' y1='18.4' x2='19.8' y2='19.8'/%3E%3Cline x1='1' y1='12' x2='3' y2='12'/%3E%3Cline x1='21' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.2' y1='19.8' x2='5.6' y2='18.4'/%3E%3Cline x1='18.4' y1='5.6' x2='19.8' y2='4.2'/%3E%3C/g%3E%3C/svg%3E");
   --dp-icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z'/%3E%3C/svg%3E");
-  --dp-card-border: #d9dde1;
+  --dp-card-border: #bcc4cc;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color-scheme: light;
 }
@@ -37,11 +37,11 @@ html[data-theme="dark"] {
   --dp-nav-bg: rgba(15, 18, 22, 0.88);
   --dp-footer-bg: #0c0f12;
   --dp-icon: #dbe0e6;
-  --dp-switch-track: #2a323c;
+  --dp-switch-track: #3a4552;
   --dp-switch-knob: #f2f5f8;
   --dp-switch-border: #5c6673;
   --dp-switch-icon: #3b4652;
-  --dp-card-border: #333c47;
+  --dp-card-border: #4a5666;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -60,11 +60,11 @@ html[data-theme="dark"] {
     --dp-nav-bg: rgba(15, 18, 22, 0.88);
     --dp-footer-bg: #0c0f12;
     --dp-icon: #dbe0e6;
-    --dp-switch-track: #2a323c;
+    --dp-switch-track: #3a4552;
     --dp-switch-knob: #f2f5f8;
     --dp-switch-border: #5c6673;
     --dp-switch-icon: #3b4652;
-    --dp-card-border: #333c47;
+    --dp-card-border: #4a5666;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -713,4 +713,119 @@ body {
   .author__bio {
     font-size: 0.95rem;
   }
+}
+
+/* ---- Specificity-safe overrides: these rules lost to main.css earlier. ---- */
+
+/* Brand link must stay on one line so it cannot cross the masthead border. */
+.greedy-nav .visible-links .masthead__menu-item--lg,
+.greedy-nav .visible-links .masthead__menu-item--lg a {
+  white-space: nowrap;
+}
+
+/* A filled button is never underlined. */
+#main .btn-download,
+#main .btn-download:hover,
+.page__content a.btn-download,
+.archive a.btn-download {
+  text-decoration: none;
+  color: var(--dp-bg);
+}
+
+/* Cards need a fill as well as a border so 18 of them are separable. */
+#main .entry-card,
+.archive .entry-card {
+  background-color: var(--dp-surface);
+  border: 1px solid var(--dp-card-border);
+}
+
+#main .skill-chips li,
+.archive .skill-chips li {
+  border: 1px solid var(--dp-card-border);
+  background-color: var(--dp-bg);
+}
+
+/* Heading scale: h2 outranks h3 in both size and weight. */
+#main .page__content h2,
+#main .archive h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+#main .page__content h3,
+#main .archive h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dp-heading);
+  letter-spacing: 0;
+}
+
+/* Switch centered on the nav row and inside the content grid. */
+#theme-switch {
+  top: 12px;
+  right: 1.4em;
+}
+
+@media (min-width: 80em) {
+  #theme-switch {
+    right: calc(50vw - 640px + 1.6em);
+  }
+}
+
+/* Desktop sidebar bio should be readable, not 12.75px. */
+.sidebar .author__bio,
+.author__profile .author__bio {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---- Mobile: the author card is a table row in main.css; force a stack. ---- */
+@media (max-width: 47.9375em) {
+  .sidebar,
+  .sidebar .author__avatar,
+  .sidebar .author__content,
+  .sidebar .author__urls-wrapper,
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper {
+    display: block;
+    float: none;
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .sidebar .author__avatar img,
+  .author__avatar img {
+    width: 84px;
+    height: 84px;
+    max-width: 84px;
+  }
+
+  .sidebar .author__bio,
+  .author__profile .author__bio {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* Nav wraps under the switch instead of running beneath it. */
+  .greedy-nav .visible-links {
+    padding-right: 92px;
+  }
+}
+
+/* Nothing in the page may push the document wider than the viewport. */
+html,
+body,
+#main,
+.page,
+.sidebar,
+.author__urls-wrapper {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
 }
