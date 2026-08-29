@@ -985,3 +985,24 @@ body {
   left: 1rem;
   top: 1rem;
 }
+
+/* The hamburger is absolutely positioned at the nav's right edge; give it its own
+   clearance so the fixed switch and the menu button never share space. */
+@media (max-width: 63.9375em) {
+  .greedy-nav {
+    padding-right: 0;
+  }
+
+  .greedy-nav > button {
+    right: 72px;
+  }
+
+  .greedy-nav .visible-links {
+    max-width: calc(100vw - 140px);
+    overflow: hidden;
+  }
+
+  #theme-switch {
+    right: 14px;
+  }
+}
