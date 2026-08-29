@@ -1016,12 +1016,10 @@ body {
 /* Between 600 and 1279 the stacked card lays its rows out in columns. */
 @media (min-width: 37.5em) and (max-width: 79.9375em) {
   .author__urls.social-icons {
-    column-count: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     column-gap: var(--dp-space-4);
-  }
-
-  .author__urls li {
-    break-inside: avoid;
+    align-items: start;
   }
 }
 
@@ -1084,12 +1082,19 @@ body {
 
 /* Sticky beats fixed: short viewports fall back to normal page scroll. */
 @media (min-width: 80em) {
-  /* Never clip the sidebar: a shorter viewport must still reach every contact row. */
+  .sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+/* Pin the sidebar only on viewports tall enough to show all of it. */
+@media (min-width: 80em) and (min-height: 60em) {
   .sidebar {
     position: sticky;
     top: 86px;
-    max-height: none;
-    overflow: visible;
+    align-self: start;
   }
 }
 
@@ -1188,4 +1193,20 @@ button:focus-visible,
 
 .masthead {
   backdrop-filter: none;
+}
+
+/* A 178px rail cannot hold "GlobalLogic (client: Walmart)" without breaking it
+   over three lines; widen it and give the content column the space back. */
+@media (min-width: 80em) {
+  .sidebar,
+  .sidebar.sticky {
+    width: clamp(240px, 20vw, 300px);
+    padding-right: var(--dp-space-3);
+    opacity: 1;
+  }
+
+  .page {
+    padding-right: 0;
+    width: auto;
+  }
 }
