@@ -19,7 +19,7 @@
   --dp-switch-icon: #b35c00;
   --dp-icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cg stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='12' y1='1' x2='12' y2='3'/%3E%3Cline x1='12' y1='21' x2='12' y2='23'/%3E%3Cline x1='4.2' y1='4.2' x2='5.6' y2='5.6'/%3E%3Cline x1='18.4' y1='18.4' x2='19.8' y2='19.8'/%3E%3Cline x1='1' y1='12' x2='3' y2='12'/%3E%3Cline x1='21' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.2' y1='19.8' x2='5.6' y2='18.4'/%3E%3Cline x1='18.4' y1='5.6' x2='19.8' y2='4.2'/%3E%3C/g%3E%3C/svg%3E");
   --dp-icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z'/%3E%3C/svg%3E");
-  --dp-card-border: #a7b0b9;
+  --dp-card-border: #8b959f;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color-scheme: light;
 }
@@ -37,11 +37,11 @@ html[data-theme="dark"] {
   --dp-nav-bg: rgba(15, 18, 22, 0.88);
   --dp-footer-bg: #0c0f12;
   --dp-icon: #dbe0e6;
-  --dp-switch-track: #46525f;
+  --dp-switch-track: #5a6673;
   --dp-switch-knob: #f2f5f8;
   --dp-switch-border: #5c6673;
   --dp-switch-icon: #3b4652;
-  --dp-card-border: #5b697c;
+  --dp-card-border: #6c7c90;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -60,11 +60,11 @@ html[data-theme="dark"] {
     --dp-nav-bg: rgba(15, 18, 22, 0.88);
     --dp-footer-bg: #0c0f12;
     --dp-icon: #dbe0e6;
-    --dp-switch-track: #46525f;
+    --dp-switch-track: #5a6673;
     --dp-switch-knob: #f2f5f8;
     --dp-switch-border: #5c6673;
     --dp-switch-icon: #3b4652;
-    --dp-card-border: #5b697c;
+    --dp-card-border: #6c7c90;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -395,10 +395,6 @@ body {
 }
 
 /* Nav keeps clear of the fixed switch so links are never covered. */
-.greedy-nav .visible-links {
-  padding-right: 74px;
-}
-
 /* Theme switch: fixed pill, icon rides inside the knob so it always shows the active mode. */
 #theme-switch {
   position: fixed;
@@ -800,10 +796,6 @@ body {
     max-width: 100%;
   }
 
-  /* Nav wraps under the switch instead of running beneath it. */
-  .greedy-nav .visible-links {
-    padding-right: 92px;
-  }
 }
 
 /* Nothing in the page may push the document wider than the viewport. */
@@ -834,16 +826,18 @@ body {
 @media (max-width: 63.9375em) {
   #theme-switch {
     top: 20px;
-    right: 72px;
+    right: 16px;
   }
 
-  .greedy-nav .visible-links {
-    padding-right: 134px;
+  .greedy-nav {
+    box-sizing: border-box;
+    padding-right: 88px;
   }
 }
 
 @media (min-width: 64em) {
-  .greedy-nav .visible-links {
+  .greedy-nav {
+    box-sizing: border-box;
     padding-right: 84px;
   }
 }
@@ -855,7 +849,7 @@ body {
 }
 
 /* Stack the author card everywhere the 3-column desktop grid is not active. */
-@media (max-width: 63.9375em) {
+@media (max-width: 79.9375em) {
   .sidebar,
   .sidebar .author__avatar,
   .sidebar .author__content,
@@ -927,4 +921,67 @@ body {
   display: inline-block;
   padding: 0.28em 0;
   min-height: 24px;
+}
+
+/* Location and employer rows are desktop-only in main.css; show them whenever the card is stacked. */
+@media (max-width: 79.9375em) {
+  .sidebar .author__desktop,
+  .author__urls .author__desktop {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+}
+
+/* The avatar must never spill out of its rail. */
+@media (min-width: 80em) {
+  .sidebar .author__avatar img,
+  .author__avatar img {
+    width: 140px;
+    height: 140px;
+    max-width: 100%;
+  }
+}
+
+/* Publications entries reuse the card shell. */
+.archive > ul > li {
+  background-color: var(--dp-surface);
+  border: 1px solid var(--dp-card-border);
+  border-radius: var(--dp-radius);
+  padding: var(--dp-space-4);
+  margin-bottom: var(--dp-space-3);
+  list-style: none;
+}
+
+.archive > ul {
+  padding-left: 0;
+}
+
+/* One monochrome icon vocabulary. */
+.author__urls .fa-linkedin,
+.author__urls .fa-linkedin-in,
+.page__footer-follow .fa-rss-square,
+.page__footer-follow .fa-rss {
+  color: var(--dp-icon);
+}
+
+/* Keyboard users skip the fixed masthead. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1100;
+  padding: 0.6em 1em;
+  background: var(--dp-bg-elevated);
+  color: var(--dp-link);
+  border: 1px solid var(--dp-card-border);
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
 }

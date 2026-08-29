@@ -3,6 +3,7 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
+description: "CV of Divy Patel, software engineer working on AI systems, data pipelines, and platform software."
 redirect_from:
   - /resume
 ---

@@ -3,6 +3,7 @@ layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
+description: "Peer-reviewed publications by Divy Patel in materials informatics and primate genomics."
 ---
 
 {% include base_path %}

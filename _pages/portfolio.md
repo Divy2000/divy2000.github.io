@@ -3,6 +3,7 @@ layout: archive
 title: "Portfolio"
 permalink: /portfolio/
 author_profile: true
+description: "Projects by Divy Patel across LLMs, computer vision, data pipelines, and Android."
 ---
 
 {% include base_path %}
@@ -11,7 +12,7 @@ author_profile: true
 
 <div class="entry-card" markdown="1">
 
-## LLM for Document Based Question Answering - [Github Repository](https://github.com/Divy2000/Document-Based-QnA-LLM)
+## LLM for Document Based Question Answering - [GitHub Repository](https://github.com/Divy2000/Document-Based-QnA-LLM)
 
 <ul class="skill-chips"><li>Large Language Models</li><li>RAG Implementation</li><li>Prompt Engineering</li><li>Chat Automation</li></ul>
 
@@ -33,7 +34,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Skin Disease Detector App - [Github Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)
+## Skin Disease Detector App - [GitHub Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)
 
 <ul class="skill-chips"><li>Deep Learning</li><li>Computer Vision</li><li>Real-Time Classification</li><li>Model Optimization</li><li>Data Augmentation</li></ul>
 
@@ -44,7 +45,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Brain Tumor Recognizer App - [Github Repository](https://github.com/Divy2000/Brain-Tumor-Recognizer-App)
+## Brain Tumor Recognizer App - [GitHub Repository](https://github.com/Divy2000/Brain-Tumor-Recognizer-App)
 
 <ul class="skill-chips"><li>Model Optimization</li><li>Azure Custom Vision</li><li>Data Augmentation</li></ul>
 
@@ -66,7 +67,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Gesture-Based Media Control System - [Github Repository](https://github.com/Divy2000/Gesture-Based-Media-Control-System)
+## Gesture-Based Media Control System - [GitHub Repository](https://github.com/Divy2000/Gesture-Based-Media-Control-System)
 <ul class="skill-chips"><li>Deep Learning</li><li>Data Augmentation</li></ul>
 
 - Curated a dataset of hand gestures for play/pause, volume up, and volume down functions.
@@ -86,7 +87,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## EV Battery RUL Predictor - [Github Repository](https://github.com/Divy2000/BatteryRULpredictor)
+## EV Battery RUL Predictor - [GitHub Repository](https://github.com/Divy2000/BatteryRULpredictor)
 
 <ul class="skill-chips"><li>Machine Learning</li><li>Django</li><li>NASA Prognostic Dataset</li><li>Data Visualization</li><li>Predictive Analytics</li></ul>
 
@@ -98,7 +99,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Bus Number Recognition System - [Github Repository](https://github.com/Divy2000/Bus-Number-Recognition-System)
+## Bus Number Recognition System - [GitHub Repository](https://github.com/Divy2000/Bus-Number-Recognition-System)
 
 <ul class="skill-chips"><li>Computer Vision</li><li>OCR</li><li>Google Cloud Compute</li><li>Arduino Integration</li><li>Real-Time Data</li></ul>
 
@@ -120,7 +121,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Process Scheduling Visualization Application - [Github Repository](https://github.com/Divy2000/Scheduling-Algorithms-GUI)
+## Process Scheduling Visualization Application - [GitHub Repository](https://github.com/Divy2000/Scheduling-Algorithms-GUI)
 
 <ul class="skill-chips"><li>Java</li><li>Data Visualization</li><li>Process Scheduling</li><li>GUI Development</li></ul>
 
@@ -131,7 +132,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Student Drowsiness Detection System  - [Github Repository](https://github.com/Divy2000/Drowsiness-Detection/tree/main)
+## Student Drowsiness Detection System  - [GitHub Repository](https://github.com/Divy2000/Drowsiness-Detection/tree/main)
 
 <ul class="skill-chips"><li>Deep Learning</li><li>Computer Vision</li><li>Data Extraction</li><li>Real-Time Prediction</li></ul>
 
@@ -164,7 +165,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Smart Parking Database Management System - [Github Repository](https://github.com/Divy2000/Smart-Parking-Database-Managment-System)
+## Smart Parking Database Management System - [GitHub Repository](https://github.com/Divy2000/Smart-Parking-Database-Managment-System)
 
 <ul class="skill-chips"><li>Database Design</li><li>Data Testing</li><li>SQL</li><li>Data Validation</li></ul>
 
@@ -175,7 +176,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Twitter Sentiment Analysis - [Github Repository](https://github.com/Divy2000/Twitter-Sentiment-Analysis)
+## Twitter Sentiment Analysis - [GitHub Repository](https://github.com/Divy2000/Twitter-Sentiment-Analysis)
 
 <ul class="skill-chips"><li>Natural Language Processing (NLP)</li><li>Machine Learning</li><li>Data Visualization</li><li>Data Pipelines</li></ul>
 
@@ -186,7 +187,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Graph Operations and Search  - [Github Repository](https://github.com/Divy2000/Graph-Operations-and-Search)
+## Graph Operations and Search  - [GitHub Repository](https://github.com/Divy2000/Graph-Operations-and-Search)
 
 <ul class="skill-chips"><li>Java</li><li>Graph Operations</li><li>CLI Development</li></ul>
 
