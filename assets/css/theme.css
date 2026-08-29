@@ -1367,3 +1367,26 @@ button:focus-visible,
 .author__urls li:last-child {
   min-height: 53px;
 }
+
+/* main.css also floats and clears .page__content, .page__meta and .page__share,
+   which is what actually pushed the home page's body copy below the rail. */
+@media (min-width: 80em) {
+  #main .page .page__content,
+  #main .page .page__meta,
+  #main .page .page__share,
+  .page .page__content,
+  .page .page__meta,
+  .page .page__share {
+    clear: none;
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Every contact row is the same height, wrapped or not. */
+.sidebar .author__urls li,
+.author__urls li,
+.sidebar .author__urls li:last-child,
+.author__urls li:last-child {
+  min-height: 53px;
+}
