@@ -829,18 +829,10 @@ body {
     right: 16px;
   }
 
-  .greedy-nav {
-    box-sizing: border-box;
-    padding-right: 88px;
-  }
+
 }
 
-@media (min-width: 64em) {
-  .greedy-nav {
-    box-sizing: border-box;
-    padding-right: 84px;
-  }
-}
+
 
 @media (min-width: 80em) {
   #theme-switch {
@@ -988,35 +980,19 @@ body {
 
 /* The hamburger is absolutely positioned at the nav's right edge; give it its own
    clearance so the fixed switch and the menu button never share space. */
+/* Shrinking the nav itself is what the greedy-nav script measures, so the links
+   collapse into the menu instead of running under the fixed switch. */
+.greedy-nav {
+  width: calc(100% - 76px);
+}
+
 @media (max-width: 63.9375em) {
   .greedy-nav {
     padding-right: 0;
-  }
-
-  .greedy-nav > button {
-    right: 72px;
-  }
-
-  .greedy-nav .visible-links {
-    max-width: calc(100vw - 140px);
-    overflow: hidden;
+    width: calc(100% - 84px);
   }
 
   #theme-switch {
     right: 14px;
   }
-}
-
-/* A display:table row ignores the width clamp; make it a flex row so links stop
-   at the hamburger instead of sliding underneath it. */
-.greedy-nav .visible-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.greedy-nav .visible-links .masthead__menu-item {
-  flex: 0 0 auto;
 }
