@@ -1251,3 +1251,54 @@ button:focus-visible,
   align-items: center;
   min-height: 44px;
 }
+
+/* main.css gives .archive a hard 968px width and floats it right; with the wider
+   rail that no longer fits on the float line, so subpages dropped below the
+   sidebar. Flow it beside the rail instead. */
+@media (min-width: 80em) {
+  .archive,
+  .page {
+    float: none;
+    width: auto;
+    margin-left: calc(clamp(240px, 20vw, 300px) + 3rem);
+    padding-left: 0;
+  }
+
+  .sidebar {
+    float: left;
+  }
+}
+
+/* Masthead, content and footer share one container width and gutter. */
+.masthead__inner-wrap,
+.page__footer footer {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 64em) and (max-width: 79.9375em) {
+  .masthead__inner-wrap,
+  .page__footer footer {
+    max-width: none;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+}
+
+/* One row height for every contact row, so the two grid columns line up. */
+.author__urls.social-icons {
+  align-items: stretch;
+}
+
+.author__urls li,
+.sidebar .author__urls li.author__desktop,
+.author__urls li.author__desktop {
+  min-height: 48px;
+  padding: 0;
+}
+
+.author__urls li > a {
+  min-height: 48px;
+}
