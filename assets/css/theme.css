@@ -10,7 +10,7 @@
   --dp-border: #e2e5e8;
   --dp-link: #216374;
   --dp-link-hover: #1f5666;
-  --dp-nav-bg: rgba(255, 255, 255, 0.92);
+  --dp-nav-bg: #ffffff;
   --dp-footer-bg: #f2f3f3;
   --dp-icon: #494e52;
   --dp-switch-track: #7d8791;
@@ -34,7 +34,7 @@ html[data-theme="dark"] {
   --dp-border: #262e38;
   --dp-link: #7db6f0;
   --dp-link-hover: #a8cdf7;
-  --dp-nav-bg: rgba(15, 18, 22, 0.88);
+  --dp-nav-bg: #0f1216;
   --dp-footer-bg: #0c0f12;
   --dp-icon: #dbe0e6;
   --dp-switch-track: #5a6673;
@@ -57,7 +57,7 @@ html[data-theme="dark"] {
     --dp-border: #262e38;
     --dp-link: #7db6f0;
     --dp-link-hover: #a8cdf7;
-    --dp-nav-bg: rgba(15, 18, 22, 0.88);
+    --dp-nav-bg: #0f1216;
     --dp-footer-bg: #0c0f12;
     --dp-icon: #dbe0e6;
     --dp-switch-track: #5a6673;
@@ -498,10 +498,6 @@ body {
     display: none;
   }
 
-  .author__urls li,
-  .author__urls .author__desktop {
-    display: block;
-  }
 
   .sidebar .author__avatar img,
   .author__avatar img {
@@ -919,7 +915,7 @@ body {
 @media (max-width: 79.9375em) {
   .sidebar .author__desktop,
   .author__urls .author__desktop {
-    display: block;
+    display: grid;
   }
 
   .sidebar {
@@ -1172,4 +1168,24 @@ button:focus-visible,
 /* The nav toggle should meet the 44px touch guideline. */
 .greedy-nav > button {
   min-height: 44px;
+}
+
+/* main.css hides these rows outside desktop and re-declares display:block, which
+   beat the row grid. This selector outranks both. */
+.sidebar .author__urls li.author__desktop,
+.author__urls li.author__desktop {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  column-gap: 12px;
+  min-height: 44px;
+  align-content: center;
+}
+
+.author__urls li > a {
+  min-height: 44px;
+}
+
+.masthead {
+  backdrop-filter: none;
 }
