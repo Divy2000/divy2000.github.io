@@ -33,7 +33,7 @@ author_profile: true
 </div>
 <div class="entry-card" markdown="1">
 
-## Skin Disease Detector App - [Github Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)             
+## Skin Disease Detector App - [Github Repository](https://github.com/Divy2000/Skin-Diseases-Detection-Hackbash)
 
 <ul class="skill-chips"><li>Deep Learning</li><li>Computer Vision</li><li>Real-Time Classification</li><li>Model Optimization</li><li>Data Augmentation</li></ul>
 

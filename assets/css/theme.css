@@ -19,7 +19,7 @@
   --dp-switch-icon: #b35c00;
   --dp-icon-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cg stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='12' y1='1' x2='12' y2='3'/%3E%3Cline x1='12' y1='21' x2='12' y2='23'/%3E%3Cline x1='4.2' y1='4.2' x2='5.6' y2='5.6'/%3E%3Cline x1='18.4' y1='18.4' x2='19.8' y2='19.8'/%3E%3Cline x1='1' y1='12' x2='3' y2='12'/%3E%3Cline x1='21' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.2' y1='19.8' x2='5.6' y2='18.4'/%3E%3Cline x1='18.4' y1='5.6' x2='19.8' y2='4.2'/%3E%3C/g%3E%3C/svg%3E");
   --dp-icon-moon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z'/%3E%3C/svg%3E");
-  --dp-card-border: #bcc4cc;
+  --dp-card-border: #a7b0b9;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
   color-scheme: light;
 }
@@ -37,11 +37,11 @@ html[data-theme="dark"] {
   --dp-nav-bg: rgba(15, 18, 22, 0.88);
   --dp-footer-bg: #0c0f12;
   --dp-icon: #dbe0e6;
-  --dp-switch-track: #3a4552;
+  --dp-switch-track: #46525f;
   --dp-switch-knob: #f2f5f8;
   --dp-switch-border: #5c6673;
   --dp-switch-icon: #3b4652;
-  --dp-card-border: #4a5666;
+  --dp-card-border: #5b697c;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
@@ -60,11 +60,11 @@ html[data-theme="dark"] {
     --dp-nav-bg: rgba(15, 18, 22, 0.88);
     --dp-footer-bg: #0c0f12;
     --dp-icon: #dbe0e6;
-    --dp-switch-track: #3a4552;
+    --dp-switch-track: #46525f;
     --dp-switch-knob: #f2f5f8;
     --dp-switch-border: #5c6673;
     --dp-switch-icon: #3b4652;
-    --dp-card-border: #4a5666;
+    --dp-card-border: #5b697c;
   --dp-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     color-scheme: dark;
   }
@@ -483,16 +483,6 @@ body {
 }
 
 @media (max-width: 47.9375em) {
-  /* Keep the switch clear of both the nav links and the hamburger. */
-  #theme-switch {
-    top: 0.65em;
-    right: 4.2em;
-  }
-
-  .greedy-nav .visible-links {
-    padding-right: 116px;
-  }
-
   /* Contact details belong in the flow on a phone, not in a floating popup. */
   .author__urls-wrapper button {
     display: none;
@@ -828,4 +818,113 @@ body,
 
 body {
   overflow-x: hidden;
+}
+
+/* ---- Final layer: single source of truth for switch placement and layout. ---- */
+
+/* Vertically center the pill on the 70px masthead. */
+#theme-switch {
+  top: 19px;
+  right: 1.4em;
+  padding: 6px;
+  margin: -6px;
+}
+
+/* Below 1024px the hamburger owns the right edge; the switch sits to its left. */
+@media (max-width: 63.9375em) {
+  #theme-switch {
+    top: 20px;
+    right: 60px;
+  }
+
+  .greedy-nav .visible-links {
+    padding-right: 120px;
+  }
+}
+
+@media (min-width: 64em) {
+  .greedy-nav .visible-links {
+    padding-right: 84px;
+  }
+}
+
+@media (min-width: 80em) {
+  #theme-switch {
+    right: calc(50vw - 640px + 1.6em);
+  }
+}
+
+/* Stack the author card everywhere the 3-column desktop grid is not active. */
+@media (max-width: 63.9375em) {
+  .sidebar,
+  .sidebar .author__avatar,
+  .sidebar .author__content,
+  .sidebar .author__urls-wrapper,
+  .author__avatar,
+  .author__content,
+  .author__urls-wrapper {
+    display: block;
+    float: none;
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .author__urls-wrapper button {
+    display: none;
+  }
+
+  .sidebar .author__urls.social-icons,
+  .author__urls.social-icons {
+    display: block !important;
+    position: static;
+    width: 100%;
+    margin: var(--dp-space-3) 0 0;
+  }
+
+  .author__urls:before,
+  .author__urls:after {
+    display: none;
+  }
+
+  .sidebar .author__avatar img,
+  .author__avatar img {
+    width: 84px;
+    height: 84px;
+    max-width: 84px;
+  }
+}
+
+/* Long contact rows wrap instead of being clipped at the card edge. */
+.author__urls li,
+.author__urls a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* The contact card matches the entry cards. */
+.author__urls {
+  border-color: var(--dp-card-border);
+}
+
+/* Center the content grid so wide screens are not left-hugging. */
+#main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+/* Cards stop at the measure instead of stretching past their own text. */
+.entry-card {
+  max-width: 56rem;
+}
+
+/* Comfortable tap targets for the contact and footer link rows. */
+.author__urls a,
+.page__footer-follow a {
+  display: inline-block;
+  padding: 0.28em 0;
+  min-height: 24px;
 }
