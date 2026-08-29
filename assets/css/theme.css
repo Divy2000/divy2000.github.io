@@ -1302,3 +1302,46 @@ button:focus-visible,
 .author__urls li > a {
   min-height: 48px;
 }
+
+/* main.css floats and clears .page__inner-wrap; with .page unfloated that clear
+   pushed the home page below the sidebar. */
+@media (min-width: 80em) {
+  .page__inner-wrap {
+    clear: none;
+    float: none;
+    width: 100%;
+  }
+}
+
+/* One container: the masthead and footer follow #main's 1200px box at every
+   width above the stacked layout, not only below 1200. */
+@media (min-width: 64em) {
+  .masthead__inner-wrap,
+  .page__footer footer {
+    max-width: 1200px;
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+}
+
+/* Row heights: the .sidebar-scoped align-items:start outranked the card rule. */
+.sidebar .author__urls.social-icons,
+.author__urls.social-icons {
+  align-items: stretch;
+}
+
+.author__urls li,
+.author__urls li > a {
+  height: 100%;
+}
+
+/* Cap the measure on an inner wrapper so bordered cards keep their full width. */
+.pub-list > ul > li,
+.entry-card {
+  max-width: none;
+}
+
+.sidebar .author__bio,
+.author__profile .author__bio {
+  max-width: 60ch;
+}
